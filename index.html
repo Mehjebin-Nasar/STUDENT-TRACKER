@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#6366f1"/>
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Present sir — Student Analyzer</title>
@@ -977,6 +980,14 @@ function showToast(msg, type='success') {
 
 // ========== INIT ==========
 renderCalendar();
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(() => console.log('PWA ready!'));
+    });
+  }
 </script>
 </body>
 </html>
